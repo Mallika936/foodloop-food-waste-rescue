@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FoodLoop — Surplus food, shared</title>
+<link rel="stylesheet" href="styles.css">
+<script src="app.js" defer></script>
+</head>
+<body>
+<header class="topbar">
+<a class="brand" href="#top">FoodLoop</a>
+<nav aria-label="Main navigation"><a href="#listings">Listings</a> <a href="#partners">Community partners</a> <a href="#schedule">Pickup schedule</a></nav>
+<span class="demo-tag">Sample workspace</span>
+</header>
+<main id="top">
+<section class="hero">
+<p class="eyebrow">Good food, circulating</p>
+<h1>Make surplus someone's next meal.</h1>
+<p>A simple local board connecting extra food with the people who can use it. List, match, arrange a pickup, and keep track of delivery.</p>
+<a class="hero-cta" href="#add-listing">Add a food listing</a>
+</section>
+<section class="stats" aria-label="Workspace overview">
+<div><strong id="stat-active">0</strong><small>active listings</small></div>
+<div><strong id="stat-matches">0</strong><small>matched listings</small></div>
+<div><strong id="stat-rescued">0</strong><small>delivered listings</small></div>
+</section>
+<section id="listings">
+<h2>Today's food loop</h2>
+<div class="filters">
+<label for="filter-status">Filter by status</label>
+<select id="filter-status"><option value="All">All statuses</option><option>Listed</option><option>Matched</option><option>Picked up</option><option>Delivered</option></select>
+<label for="filter-area">Filter by area</label>
+<select id="filter-area"><option value="All">All areas</option></select>
+</div>
+<div class="listing-grid" id="listing-grid" aria-live="polite"></div>
+</section>
+<section class="lower-grid">
+<section class="panel" id="add-listing">
+<h2>Add a food listing</h2>
+<p>Got good food to share? Add a few details and we will look for a local match.</p>
+<form id="listing-form">
+<label>Food type <input name="foodType" required maxlength="60" placeholder="e.g. Fresh bread"></label>
+<label>Quantity <input name="quantity" required maxlength="60" placeholder="e.g. 6 loaves"></label>
+<label>Location area <input name="area" required maxlength="60" placeholder="e.g. Riverside"></label>
+<label>Available until / pickup window <input name="window" type="datetime-local" required></label>
+<label>Pickup notes (optional) <input name="notes" maxlength="120" placeholder="e.g. Collect from the side entrance"></label>
+<button type="submit">Add to the rescue board</button>
+<p>Sample workspace only — no contact details needed.</p>
+</form>
+</section>
+<section class="panel" id="partners">
+<h2>Community partners</h2>
+<p>Sample recipients in the neighbourhood. Matches use area and food type.</p>
+<div id="partner-list" class="partner-list"></div>
+<p><strong>Matching rule:</strong> a partner is eligible only when its area matches the listing area and it accepts the food type.</p>
+</section>
+</section>
+<section id="schedule">
+<h2>Pickup schedule</h2>
+<p>Matched, undelivered listings, with their pickup times.</p>
+<div id="schedule-list" class="schedule-list"></div>
+</section>
+</main>
+<footer><p>FoodLoop — sample data only.</p></footer>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
